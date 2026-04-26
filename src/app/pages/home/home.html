@@ -1,49 +1,155 @@
 <!--
-  PHASE 1 SCAFFOLD CHECK ONLY
-  This is a placeholder to verify the Tailwind v4 + brand token setup compiles.
-  The real Home page will be built in Phase 6.
+  PHASE 2 VERIFICATION
+  Exercises every shared component and confirms SEO/JSON-LD services
+  inject head metadata correctly. Real Home page is built in Phase 6.
 -->
-<main class="min-h-screen bg-ivory">
-  <section class="section">
-    <div class="container-app">
-      <div class="max-w-3xl">
-        <span class="eyebrow">Phase 1 — Scaffold Verification</span>
-        <h1 class="mt-4 mb-6">
-          Imam Travels &amp; Tours
-          <span class="block text-brand-500 mt-2">Premium Spiritual Journeys</span>
+<main>
+  <!-- Hero scaffold -->
+  <section class="bg-ivory section relative overflow-hidden">
+    <!-- Subtle decorative pattern -->
+    <div
+      class="absolute inset-0 opacity-[0.04] text-brand-700 pointer-events-none"
+      aria-hidden="true"
+    >
+      <div
+        class="w-full h-full"
+        style="background-image: url('/assets/images/patterns/islamic-stars.svg'); background-size: 200px;"
+      ></div>
+    </div>
+
+    <app-container>
+      <div class="relative">
+        <span class="eyebrow eyebrow--gold">Phase 2 — Design System Check</span>
+        <h1 class="mt-4 mb-6 max-w-3xl">
+          Premium spiritual journeys,
+          <span class="text-brand-600">crafted with care</span>
         </h1>
-        <p class="text-lg mb-8 max-w-prose">
-          This is a temporary scaffold-verification page. The full home page —
-          with hero slider, services, testimonials, and CTAs — will be built in
-          Phase 6 once you've approved Phases 1–5.
+        <p class="text-lg max-w-2xl mb-8">
+          This is a Phase 2 verification view. The shared components, brand
+          palette, typography, icons, and SEO services are all wired up. Real
+          page content is delivered in Phases 5 and 6.
         </p>
 
-        <div class="flex flex-wrap gap-4 mb-12">
-          <a href="#" class="btn btn-primary">Primary CTA</a>
-          <a href="#" class="btn btn-gold">Gold CTA</a>
-          <a href="#" class="btn btn-ghost">Ghost CTA</a>
+        <div class="flex flex-wrap gap-3">
+          <app-button variant="primary" size="lg" routerLink="/">
+            <app-icon name="plane-takeoff" size="sm" />
+            Book a Hajj Package
+          </app-button>
+          <app-button variant="gold" size="lg" routerLink="/">
+            <app-icon name="sparkles" size="sm" />
+            Explore Tours
+          </app-button>
+          <app-button variant="ghost" size="lg" href="tel:+2347087786486">
+            <app-icon name="phone" size="sm" />
+            Call Us
+          </app-button>
         </div>
+      </div>
+    </app-container>
+  </section>
 
-        <!-- Color swatches — verify tokens compile -->
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
-          <div class="bg-brand-500 text-white p-4 rounded-xl">
-            <div class="text-xs opacity-80">brand-500</div>
-            <div class="font-semibold">#009C49</div>
+  <!-- Logo variants -->
+  <section class="section bg-white">
+    <app-container>
+      <app-section-heading
+        eyebrow="Brand Identity"
+        lead="The logo renders in three variants for use across header, footer, and standalone contexts."
+      >
+        Logo system
+      </app-section-heading>
+
+      <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-8 border border-brand-100 rounded-2xl text-center">
+          <div class="text-xs font-semibold text-brand-600 uppercase tracking-wider mb-6">
+            Mark
           </div>
-          <div class="bg-brand-700 text-white p-4 rounded-xl">
-            <div class="text-xs opacity-80">brand-700</div>
-            <div class="font-semibold">#006B32</div>
+          <div class="flex justify-center">
+            <app-logo variant="mark" />
           </div>
-          <div class="bg-gold-500 text-ink p-4 rounded-xl">
-            <div class="text-xs opacity-80">gold-500</div>
-            <div class="font-semibold">#C9A227</div>
+        </div>
+        <div class="p-8 border border-brand-100 rounded-2xl text-center">
+          <div class="text-xs font-semibold text-brand-600 uppercase tracking-wider mb-6">
+            Full
           </div>
-          <div class="bg-gold-50 text-ink p-4 rounded-xl border border-gold-200">
-            <div class="text-xs opacity-80">gold-50</div>
-            <div class="font-semibold">#FDF8E8</div>
+          <div class="flex justify-center">
+            <app-logo variant="full" />
+          </div>
+        </div>
+        <div class="p-8 border border-brand-100 rounded-2xl text-center">
+          <div class="text-xs font-semibold text-brand-600 uppercase tracking-wider mb-6">
+            Stacked
+          </div>
+          <div class="flex justify-center">
+            <app-logo variant="stacked" />
           </div>
         </div>
       </div>
-    </div>
+    </app-container>
+  </section>
+
+  <!-- Color & button system -->
+  <section class="section bg-gold-50">
+    <app-container>
+      <app-section-heading
+        eyebrow="Design Tokens"
+        eyebrowAccent="gold"
+        lead="Brand and gold scales paired with refined typography. Buttons demonstrate the primary interactive surfaces."
+      >
+        Colour and interaction
+      </app-section-heading>
+
+      <div class="mt-12 grid grid-cols-2 sm:grid-cols-5 gap-3">
+        <div class="bg-brand-500 text-white p-4 rounded-xl">
+          <div class="text-xs opacity-80">brand-500</div>
+          <div class="font-semibold text-sm">#009C49</div>
+        </div>
+        <div class="bg-brand-700 text-white p-4 rounded-xl">
+          <div class="text-xs opacity-80">brand-700</div>
+          <div class="font-semibold text-sm">#006B32</div>
+        </div>
+        <div class="bg-gold-500 text-ink p-4 rounded-xl">
+          <div class="text-xs opacity-80">gold-500</div>
+          <div class="font-semibold text-sm">#C9A227</div>
+        </div>
+        <div class="bg-charcoal text-white p-4 rounded-xl">
+          <div class="text-xs opacity-80">charcoal</div>
+          <div class="font-semibold text-sm">#1A1A1A</div>
+        </div>
+        <div class="bg-ivory text-ink p-4 rounded-xl border border-gold-200">
+          <div class="text-xs opacity-80">ivory</div>
+          <div class="font-semibold text-sm">#FAF8F3</div>
+        </div>
+      </div>
+
+      <div class="mt-10 flex flex-wrap gap-3">
+        <app-button variant="primary">Primary</app-button>
+        <app-button variant="gold">Gold accent</app-button>
+        <app-button variant="ghost">Ghost</app-button>
+        <app-button variant="white">White</app-button>
+        <app-button variant="primary" [loading]="true">Submitting</app-button>
+        <app-button variant="primary" [disabled]="true">Disabled</app-button>
+      </div>
+    </app-container>
+  </section>
+
+  <!-- Icons -->
+  <section class="section bg-white">
+    <app-container>
+      <app-section-heading
+        eyebrow="Icon Library"
+        lead="A curated subset of Lucide icons relevant to travel, trust, and communication contexts."
+      >
+        Icons
+      </app-section-heading>
+
+      <div class="mt-12 grid grid-cols-3 sm:grid-cols-6 lg:grid-cols-8 gap-4">
+        @for (item of icons; track item) {
+          <div class="flex flex-col items-center gap-2 p-4 rounded-xl border border-brand-50 hover:border-brand-200 hover:bg-brand-50/30 transition">
+            <app-icon [name]="item" size="lg" color="var(--color-brand-600)" />
+            <span class="text-xs text-charcoal/70 truncate max-w-full">{{ item }}</span>
+          </div>
+        }
+      </div>
+    </app-container>
   </section>
 </main>

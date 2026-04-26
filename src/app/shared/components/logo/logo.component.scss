@@ -1,0 +1,70 @@
+:host {
+  display: inline-flex;
+}
+
+.logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  text-decoration: none;
+  color: inherit;
+  transition: opacity 0.2s ease;
+
+  &:hover {
+    opacity: 0.85;
+  }
+}
+
+.logo--stacked {
+  flex-direction: column;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.logo__mark {
+  display: block;
+  border-radius: 50%;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.logo__mark--inverted {
+  filter: drop-shadow(0 0 0.25rem rgb(255 255 255 / 0.15));
+}
+
+.logo__wordmark {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.logo--stacked .logo__wordmark {
+  align-items: center;
+}
+
+.logo__brand {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.0625rem;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+.logo__sub,
+.logo__tagline {
+  font-family: var(--font-display);
+  font-weight: 500;
+  font-size: 0.8125rem;
+  color: var(--color-brand-600);
+  letter-spacing: 0.02em;
+}
+
+.logo__wordmark--inverted {
+  .logo__brand {
+    color: white;
+  }
+  .logo__sub,
+  .logo__tagline {
+    color: var(--color-gold-300);
+  }
+}

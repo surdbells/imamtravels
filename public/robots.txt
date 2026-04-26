@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+
+# Disallow likely admin/API paths if added later
+Disallow: /api/
+Disallow: /admin/
+
+# Crawl rate suggestion (optional, polite to bots)
+Crawl-delay: 1
+
+# Sitemap reference
+Sitemap: https://imamtravelsandtours.com/sitemap.xml
