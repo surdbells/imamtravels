@@ -1,0 +1,280 @@
+@import 'tailwindcss';
+
+/* ============================================
+   IMAM TRAVELS & TOURS — DESIGN SYSTEM
+   Brand: Premium Islamic / Spiritual Travel
+   Primary: #009C49 | Accent: #C9A227 | Surface: #FAF8F3
+   ============================================ */
+
+@theme {
+  /* ----- Brand colors ----- */
+  --color-brand-50: #e6f7ee;
+  --color-brand-100: #c2ebd3;
+  --color-brand-200: #9ddfb8;
+  --color-brand-300: #5fcb8a;
+  --color-brand-400: #2eb66b;
+  --color-brand-500: #009c49;
+  --color-brand-600: #008a40;
+  --color-brand-700: #006b32;
+  --color-brand-800: #004d24;
+  --color-brand-900: #003318;
+
+  --color-gold-50: #fdf8e8;
+  --color-gold-100: #faefc4;
+  --color-gold-200: #f5e29a;
+  --color-gold-300: #efd06a;
+  --color-gold-400: #dcb940;
+  --color-gold-500: #c9a227;
+  --color-gold-600: #a8861e;
+  --color-gold-700: #876b17;
+  --color-gold-800: #665010;
+  --color-gold-900: #44360a;
+
+  --color-ivory: #faf8f3;
+  --color-charcoal: #1a1a1a;
+  --color-ink: #0f0f0f;
+
+  /* ----- Typography ----- */
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ----- Custom shadows ----- */
+  --shadow-soft: 0 2px 8px rgb(0 0 0 / 0.04), 0 8px 32px rgb(0 0 0 / 0.06);
+  --shadow-elevated: 0 4px 16px rgb(0 0 0 / 0.06), 0 16px 48px rgb(0 0 0 / 0.08);
+  --shadow-gold: 0 4px 24px rgb(201 162 39 / 0.25);
+
+  /* ----- Border radius ----- */
+  --radius-card: 1.25rem;
+  --radius-pill: 9999px;
+}
+
+/* ============================================
+   BASE STYLES
+   ============================================ */
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-charcoal);
+    background-color: var(--color-ivory);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    color: var(--color-ink);
+    margin: 0;
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 5vw, 4rem);
+  }
+  h2 {
+    font-size: clamp(1.875rem, 4vw, 3rem);
+  }
+  h3 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+  }
+  h4 {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
+
+  p {
+    color: rgb(26 26 26 / 0.8);
+    margin: 0;
+  }
+
+  ::selection {
+    background-color: var(--color-brand-500);
+    color: white;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-brand-500);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* ============================================
+   COMPONENT UTILITIES
+   ============================================ */
+
+@layer components {
+  /* Container with consistent max-width */
+  .container-app {
+    width: 100%;
+    margin-inline: auto;
+    padding-inline: 1.25rem;
+    max-width: 80rem;
+  }
+
+  @media (min-width: 768px) {
+    .container-app {
+      padding-inline: 2rem;
+    }
+  }
+
+  /* Eyebrow text */
+  .eyebrow {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--color-brand-600);
+    font-family: var(--font-sans);
+  }
+
+  .eyebrow--gold {
+    color: var(--color-gold-600);
+  }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.875rem 1.75rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    border-radius: var(--radius-pill);
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: 2px solid transparent;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  .btn-primary {
+    background-color: var(--color-brand-500);
+    color: white;
+    box-shadow: 0 4px 14px rgb(0 156 73 / 0.25);
+  }
+
+  .btn-primary:hover {
+    background-color: var(--color-brand-700);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgb(0 156 73 / 0.35);
+  }
+
+  .btn-gold {
+    background-color: var(--color-gold-500);
+    color: var(--color-ink);
+    box-shadow: var(--shadow-gold);
+  }
+
+  .btn-gold:hover {
+    background-color: var(--color-gold-600);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    background-color: transparent;
+    color: var(--color-ink);
+    border-color: rgb(26 26 26 / 0.15);
+  }
+
+  .btn-ghost:hover {
+    border-color: var(--color-brand-500);
+    color: var(--color-brand-600);
+  }
+
+  .btn-ghost-light {
+    background-color: transparent;
+    color: white;
+    border-color: rgb(255 255 255 / 0.4);
+  }
+
+  .btn-ghost-light:hover {
+    background-color: white;
+    color: var(--color-ink);
+    border-color: white;
+  }
+
+  /* Section spacing */
+  .section {
+    padding-block: clamp(3rem, 8vw, 5rem);
+  }
+
+  .section-tight {
+    padding-block: clamp(2rem, 5vw, 3.5rem);
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.6s cubic-bezier(0.4, 0, 0.2, 1) both;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-out both;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(16px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-8px);
+    }
+  }
+
+  /* Reduced motion respect */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
